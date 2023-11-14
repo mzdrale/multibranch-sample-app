@@ -7,18 +7,22 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Building the application"'
+                sh 'echo "Building application"'
+                // Add build steps here
             }
         }
         stage('Test') {
+            when { expression { params.SKIP_RUN != true } }
             steps {
-                execute_stage('Test', params.SKIP_RUN)
+                sh 'echo "Testing application"'
+                // Add test steps here
             }
             echo "Idemooo"
         }
         stage('Deploy') {
             steps {
-                sh 'echo "Deploying the application"'
+                sh 'echo "Deploying application"'
+                // Add deployment steps here
             }
         }
     }
