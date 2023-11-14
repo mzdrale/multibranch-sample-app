@@ -13,6 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 execute_stage('Test', params.SKIP_RUN)
+                echo "Idemooo"
             }
         }
         stage('Deploy') {
