@@ -16,8 +16,8 @@ pipeline {
             steps {
                 sh 'echo "Testing application"'
                 // Add test steps here
+                echo "Idemooo"
             }
-            echo "Idemooo"
         }
         stage('Deploy') {
             steps {
@@ -28,12 +28,12 @@ pipeline {
     }
 }
 
-def execute_stage(stage_name, skip) {
-    stage(stage_name) {
-        if(skip) {
-            echo "Skipping ${stage_name} stage"
-            return
-        }
-        // Add steps to test the application
-    }
-}
+// def execute_stage(stage_name, skip) {
+//     stage(stage_name) {
+//         if(skip) {
+//             echo "Skipping ${stage_name} stage"
+//             return
+//         }
+//         // Add steps to test the application
+//     }
+// }
