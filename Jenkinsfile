@@ -5,10 +5,30 @@ pipeline {
     }
 
     stages {
-        stage('Update info') {
+        stage('Build') {
             steps {
-                echo "${params.SKIP_RUN}"
+                sh 'echo "Building the application"'
             }
         }
+        stage('Test') {
+            steps {
+                execute_stage('Test', params.SKIP_RUN)
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying the application"'
+            }
+        }
+    }
+}
+
+def execute_stage(stage_name, skip) {
+    stage(stage_name) {
+        if(skip) {
+            echo "Skipping ${stage_name} stage"
+            return
+        }
+        // Add steps to test the application
     }
 }
